@@ -8,7 +8,7 @@ namespace BlazorSweeper.Components
     {
         private readonly int _width = 30;
         private readonly int _height = 16;
-        private readonly int _bombAmount = 299;
+        private readonly int _bombAmount = 99;
 
         private MineSweeper sweeper;
 
