@@ -1,0 +1,25 @@
+﻿.field-container {
+    display: flex;
+    flex-flow: column;
+}
+
+.field-row-container {
+    display: flex;
+    justify-content: center;
+    user-select: none;
+}
+
+.action-bar {
+    margin: 10px;
+}
+
+.game-status-bar {
+    display: flex;
+    justify-content: center;
+}
+
+.remaining-flags-count {
+    font-size: 20px;
+    font-weight: 800;
+    font-family: "consolas";
+}

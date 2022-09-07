@@ -1,0 +1,32 @@
+﻿@using BerldSweeper
+<h3>Game - @sweeper.State.ToString()</h3>
+
+<div class="action-bar">
+    <input type="button" value="Reset" @onclick="ResetGame" />
+    <input type="button" value="Trivial Flags" @onclick="SweepTrivialFlags" />
+    <input type="button" value="Trivial Reveals" @onclick="SweepTrivialReveals" />
+</div>
+
+<div class="game-status-bar">
+    <p class="remaining-flags-count">@GetRemainingFlags()</p>
+</div>
+
+<div class="field-container">
+
+    @for (int y = 0; y < sweeper.Height; y++)
+    {
+
+        <div class="field-row-container">
+
+            @for (int x = 0; x < sweeper.Width; x++)
+            {
+                Square square = sweeper.Field[y, x];
+
+                <GameSquare Square=square OnClickCallback="@ChildSquareClicked"></GameSquare>
+            }
+
+        </div>
+
+    }
+
+</div>
