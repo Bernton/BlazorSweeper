@@ -1,4 +1,4 @@
-﻿<div class="game-square-container" style="@StyleForSquareContainer()" oncontextmenu="return false;" @onmouseup="SquareClicked">
+﻿<div class="game-square-container" style="@StyleForSquareContainer()" oncontextmenu="return false;" @onmousedown="HandleMouseDown" @onmouseup="HandleMouseUp">
 
     <span style="@StyleForSquareContent()" class="game-square-content">@ContentForSquare()</span>
 

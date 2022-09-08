@@ -12,6 +12,8 @@ namespace BlazorSweeper.Components
         [Parameter]
         public Square? Square { get; set; }
 
+        private DateTime lastMouseDown = DateTime.MinValue;
+
         private string StyleForSquareContainer()
         {
             string color = "white";
@@ -102,10 +104,26 @@ namespace BlazorSweeper.Components
                 _ => "white"
             };
 
-        private void SquareClicked(MouseEventArgs e)
+        private void HandleMouseDown(MouseEventArgs e)
+        {
+            lastMouseDown = DateTime.Now;
+        }
+
+        private void HandleMouseUp(MouseEventArgs e)
         {
             if (Square is not null)
             {
+                if (e.Button == 0)
+                {
+                    DateTime now = DateTime.Now;
+                    TimeSpan timeSinceLastMouseDown = now - lastMouseDown;
+
+                    if (timeSinceLastMouseDown > TimeSpan.FromSeconds(0.5) && timeSinceLastMouseDown < TimeSpan.FromSeconds(2))
+                    {
+                        e.Button = 2;
+                    }
+                }
+
                 OnClickCallback.InvokeAsync((e, Square));
             }
         }
