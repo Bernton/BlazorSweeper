@@ -55,6 +55,12 @@ namespace BlazorSweeper.Components
             }
         }
 
+        private void SweepSuffocationReveals()
+        {
+            List<SweepAction> actions = engine.SolveSuffocationReveals(sweeper);
+            ExecuteSweepActions(actions);
+        }
+
         private void SweepTrivialFlags()
         {
             List<SweepAction> actions = engine.SolveTrivialFlags(sweeper);
